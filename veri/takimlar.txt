@@ -1,0 +1,31 @@
+# Türkiye'den bilinen futbol kulüpleri ve kuruluş yılları: takım;yıl
+# Takım adları şifrede yazılacağı gibi küçük harfle ve boşluksuz yazılmıştır.
+# DİKKAT: Kuruluş yılları kulüplerin resmî sitelerinden tek tek kontrol edilmeli
+# ve kaynakları README dosyasına yazılmalıdır.
+beşiktaş;1903
+galatasaray;1905
+fenerbahçe;1907
+ankaragücü;1910
+altay;1914
+eyüpspor;1919
+kasımpaşa;1921
+konyaspor;1922
+gençlerbirliği;1923
+göztepe;1925
+karagümrük;1926
+adanademirspor;1940
+alanyaspor;1948
+rizespor;1953
+bursaspor;1963
+samsunspor;1965
+sakaryaspor;1965
+eskişehirspor;1965
+kayserispor;1966
+antalyaspor;1966
+kocaelispor;1966
+denizlispor;1966
+trabzonspor;1967
+sivasspor;1967
+hatayspor;1967
+gaziantepfk;1988
+başakşehir;1990

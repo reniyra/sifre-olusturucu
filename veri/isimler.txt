@@ -1,0 +1,17 @@
+# Örnek Türkçe isimler (öğrenciler bu listeyi açık kaynaklardan genişletecek)
+# Her satıra bir isim yazılır. # ile başlayan satırlar okunmaz.
+ayşe
+fatma
+zeynep
+elif
+emine
+mehmet
+mustafa
+ahmet
+ali
+hüseyin
+yusuf
+ömer
+eymen
+çağla
+gülşen

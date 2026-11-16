@@ -1,0 +1,15 @@
+# Uzun cümle-şifreler için örnek sık kullanılan kelimeler
+kalem
+deniz
+bulut
+güneş
+kitap
+çiçek
+ağaç
+masa
+kapı
+yıldız
+şeker
+ırmak
+dağ
+köprü
