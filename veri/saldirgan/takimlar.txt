@@ -1,0 +1,31 @@
+# SALDIRGANIN SÖZLÜĞÜ - futbol kulübü adları (kuruluş yılları YOK)
+# Tahmin programı bu listeyi kullanır; şifre üretici kullanmaz.
+# Saldırgan, şifre üreticinin bildiğinden DAHA FAZLA kelime bilir (gerçekçi saldırgan).
+# Kaynak: veri/takimlar.txt dosyasındaki adlar
+beşiktaş
+galatasaray
+fenerbahçe
+ankaragücü
+altay
+eyüpspor
+kasımpaşa
+konyaspor
+gençlerbirliği
+göztepe
+karagümrük
+adanademirspor
+alanyaspor
+rizespor
+bursaspor
+samsunspor
+sakaryaspor
+eskişehirspor
+kayserispor
+antalyaspor
+kocaelispor
+denizlispor
+trabzonspor
+sivasspor
+hatayspor
+gaziantepfk
+başakşehir

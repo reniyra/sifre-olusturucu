@@ -1,0 +1,32 @@
+# RAPOR METİNLERİ
+# Bu dosyadaki yazılar rapor.html sayfasında görünür. Not Defteri ile açıp kendi cümlelerinizi yazın.
+# Köşeli parantez içindeki başlıkları [ ] DEĞİŞTİRMEYİN, yalnızca altlarındaki yazıları değiştirin.
+# # ile başlayan satırlar açıklamadır, sayfada görünmez.
+# Kaydettikten sonra:  python sonuc_raporu.py
+
+[BAŞLIK]
+Şifre Dedektifleri
+
+[ALT BAŞLIK]
+Tahmin programı sonuçları (geliştirme seti)
+
+[GİRİŞ]
+(Buraya yazın: Tahmin programı ne yaptı? Deneme sayısı ne demek? Kendi cümlelerinizle 2-3 cümle.)
+
+[ŞEKİL AÇIKLAMASI]
+(Buraya yazın: Grafik nasıl okunur? Nokta, çizgi ve eksen neyi gösteriyor?)
+
+[TABLO AÇIKLAMASI]
+(Buraya yazın: Tabloda hangi bilgiler var?)
+
+[YORUM]
+(Buraya yazın: Sonuçlardan ne öğrendiniz? Hangi şifreler çabuk bulundu, hangileri hiç bulunamadı? Neden?)
+
+# --- GÖRÜNÜM ---
+# Renk: İngilizce renk adı (navy, darkred, teal, purple...) ya da #1f4e79 gibi bir kod.
+[RENK]
+navy
+
+# Yazı tipi: Arial, Calibri, Times New Roman, Georgia, Verdana...
+[YAZI TİPİ]
+Arial
