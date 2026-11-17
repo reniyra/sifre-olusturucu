@@ -1,7 +1,7 @@
 # SALDIRGANIN SÖZLÜĞÜ - Türkçe isimler
 # Tahmin programı bu listeyi kullanır; şifre üretici kullanmaz.
 # Saldırgan, şifre üreticinin bildiğinden DAHA FAZLA kelime bilir (gerçekçi saldırgan).
-# Kaynak: danışmanın hazırladığı örnek liste; öğrenciler resmî bir kaynakla (ör. TÜİK doğum istatistikleri) karşılaştırıp genişletebilir
+# Kaynak: proje ekibinin hazırladığı örnek liste. Bu liste v2.0-tahmin ile donduruldu; değiştirmeyin.
 ayşe
 fatma
 zeynep

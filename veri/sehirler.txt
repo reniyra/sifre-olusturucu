@@ -1,6 +1,6 @@
 # Türkiye'nin 81 ili ve plaka kodları: şehir;plaka
 # Şehir adları şifrede yazıldığı gibi küçük harfle yazılmıştır.
-# Kaynak: (öğrenciler resmî bir kaynak ekleyecek)
+# Kaynak: README dosyasındaki Kaynaklar bölümüne bakın.
 adana;01
 adıyaman;02
 afyonkarahisar;03

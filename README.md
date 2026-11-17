@@ -84,4 +84,58 @@ Tahmin grupları: klavye dizileri, tek kelimeler, kelime + iki haneli sayı (00�
 
 ## Kaynaklar
 
-Kelime listelerinin kaynakları buraya yazılacak.
+**Yarışma belgesi**
+
+- TÜBİTAK (2026). *2204-B Ortaokul Öğrencileri Araştırma Projeleri Yarışması Proje Rehberi 2027.* https://tubitak.gov.tr/sites/default/files/2026-09/ortaokul_proje_rehberi_2027.pdf
+
+**Karşılaştırılacak güç ölçer**
+
+- zxcvbn-ts: açık kaynaklı şifre güç ölçer ve dil paketleri (Türkçe paket dahil). https://zxcvbn-ts.github.io/zxcvbn/guide/languages/
+
+**Veri listeleri**
+
+| Dosya | Kaynağı |
+| --- | --- |
+| `veri/sehirler.txt`, `veri/saldirgan/sehirler.txt` | Türkiye'nin 81 ili ve plaka kodları (01 Adana – 81 Düzce) |
+| `veri/takimlar.txt`, `veri/saldirgan/takimlar.txt` | Kulüplerin kuruluş yılları, danışman öğretmen tarafından kulüplerin resmî internet siteleri (ör. https://www.eyupspor.org.tr/kulup) ve Transfermarkt kulüp sayfaları üzerinden doğrulandı (erişim tarihi: 17.11.2026) |
+| `veri/isimler.txt`, `veri/kelimeler.txt`, `veri/saldirgan/isimler.txt`, `veri/saldirgan/kelimeler.txt` | Proje ekibi tarafından örnek liste olarak hazırlandı (resmî bir istatistikten alınmadı) |
+
+**Kulüplerin resmî internet siteleri** (erişim tarihi: 17.11.2026)
+
+| Kulüp | Listedeki yıl | Resmî site |
+| --- | --- | --- |
+| Beşiktaş | 1903 | https://www.bjk.com.tr |
+| Galatasaray | 1905 | https://www.galatasaray.org |
+| Fenerbahçe | 1907 | https://www.fenerbahce.org |
+| MKE Ankaragücü | 1910 | https://ankaragucu.org.tr/tarihce/ |
+| Altay | 1914 | https://www.altay.org.tr |
+| Eyüpspor | 1919 | https://www.eyupspor.org.tr/kulup |
+| Kasımpaşa | 1921 | https://www.kasimpasa.com.tr |
+| Konyaspor | 1922 | https://www.konyaspor.org.tr |
+| Gençlerbirliği | 1923 | https://www.genclerbirligi.org.tr |
+| Göztepe | 1925 | https://www.goztepe.org.tr/Kulup/Tarihce |
+| Fatih Karagümrük | 1926 | https://www.karagumruk.com/kulup/tarihce/ |
+| Adana Demirspor | 1940 | https://www.adanademirspor.org.tr |
+| Alanyaspor | 1948 | https://www.alanyaspor.org.tr |
+| Çaykur Rizespor | 1953 | https://www.caykurrizespor.org.tr |
+| Bursaspor | 1963 | https://www.bursaspor.org.tr |
+| Samsunspor | 1965 | https://www.samsunspor.com.tr/tarihce |
+| Sakaryaspor | 1965 | https://sakaryaspor.org.tr |
+| Eskişehirspor | 1965 | https://www.eskisehirspor.org.tr |
+| Kayserispor | 1966 | https://kayserispor.org.tr |
+| Antalyaspor | 1966 | https://www.antalyaspor.com.tr |
+| Kocaelispor | 1966 | https://www.kocaelispor.com.tr |
+| Denizlispor | 1966 | (eklenecek) |
+| Trabzonspor | 1967 | https://www.trabzonspor.org.tr/tr/kulup/tarihce |
+| Sivasspor | 1967 | https://www.sivasspor.org.tr/tarihce/ |
+| Hatayspor | 1967 | https://www.hatayspor.org.tr |
+| Gaziantep FK | 1988 | https://www.gaziantepfk.org/kulubumuz/kulup-tarihcesi |
+| İstanbul Başakşehir | 1990 | (eklenecek) |
+
+**Literatür**
+
+Şifre güvenliği ve güç ölçerlerle ilgili kaynaklar öğrenciler tarafından eklenecek.
+
+## Yapay zekâ kullanımı
+
+Programların iskeleti ve bu belgenin ilk hâli bir yapay zekâ asistanı (Claude, Anthropic) yardımıyla hazırlanmıştır. Araştırma sorusu, yöntem kararları ve güç ölçerin kuralları proje ekibine aittir. Öğrenciler programların her bölümünü okuyup açıklayabilecek düzeyde incelemiştir.

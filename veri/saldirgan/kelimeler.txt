@@ -1,7 +1,7 @@
 # SALDIRGANIN SÖZLÜĞÜ - sık kullanılan Türkçe kelimeler
 # Tahmin programı bu listeyi kullanır; şifre üretici kullanmaz.
 # Saldırgan, şifre üreticinin bildiğinden DAHA FAZLA kelime bilir (gerçekçi saldırgan).
-# Kaynak: danışmanın hazırladığı örnek liste
+# Kaynak: proje ekibinin hazırladığı örnek liste. Bu liste v2.0-tahmin ile donduruldu; değiştirmeyin.
 kalem
 deniz
 bulut
