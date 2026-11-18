@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zxcvbn ölçümü</title>
+<style>
+ body { font-family: Arial, sans-serif; max-width: 860px; margin: 30px auto; padding: 0 16px; color: #111; line-height: 1.5; }
+ h1 { font-size: 26px; margin-bottom: 4px; }
+ h2 { font-size: 20px; margin-top: 32px; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+ .uyari { border: 1px solid #c00; padding: 8px 12px; }
+ input[type=text] { font-size: 18px; padding: 6px; width: 320px; }
+ button { font-size: 16px; padding: 6px 14px; }
+ table { border-collapse: collapse; margin-top: 10px; }
+ th, td { border: 1px solid #999; padding: 4px 8px; text-align: left; }
+ .puan { font-size: 22px; font-weight: bold; }
+ .kucuk { font-size: 13px; color: #444; }
+</style>
+</head>
+<body>
+<h1>zxcvbn ölçümü</h1>
+<p>Şifre Dedektifleri projesi · yaygın güç ölçer zxcvbn'i Türkçe paketle çalıştırır.</p>
+
+<p class="uyari"><b>Yalnızca projenin yapay şifrelerini yazın.</b> Kendi şifrenizi ya da bir başkasının şifresini asla yazmayın.
+Bu sayfa internete bağlanmaz ve yazdıklarınızı hiçbir yere kaydetmez.</p>
+
+<h2>1. Tek şifre</h2>
+<input type="text" id="sifre" autocomplete="off" spellcheck="false" placeholder="örnek: qwertyui">
+<div id="tekSonuc"></div>
+
+<h2>2. Toplu ölçüm (geliştirme seti)</h2>
+<p><code>ciktilar/sifreler.csv</code> dosyasını seçin. Sayfa yalnızca geliştirme setindeki şifreleri ölçer ve sonucu
+<code>zxcvbn_puanlari_gelistirme.csv</code> adıyla indirir. Test seti büyük teste kadar ölçülmez.</p>
+<input type="file" id="dosya" accept=".csv">
+<div id="topluSonuc"></div>
+
+<h2>Ayarlar</h2>
+<div id="ayarlar" class="kucuk"></div>
+
+<p id="hata" class="uyari" style="display:none"></p>
+<script>
+window.addEventListener('error', function (e) {
+  var h = document.getElementById('hata')
+  h.style.display = 'block'
+  document.body.insertBefore(h, document.body.firstChild)
+  h.textContent = 'Sayfa çalışmadı. Bu yazıyı öğretmeninize gösterin: ' + e.message + ' (satır ' + e.lineno + ')'
+})
+</script>
+<script>
+__BUNDLE__
+</script>
+<script>
+const $ = (id) => document.getElementById(id)
+const kac = (n) => n.toLocaleString('tr-TR')
+const kacis = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
+
+$('sifre').addEventListener('input', () => {
+  const sifre = $('sifre').value
+  if (!sifre) { $('tekSonuc').innerHTML = ''; return }
+  const s = Olcum.olc(sifre)
+  let html = `<p>Puan: <span class="puan">${s.puan}</span> / 4 &nbsp; · &nbsp; zxcvbn'in tahmini: yaklaşık ${kac(s.tahmin)} denemede bulunur</p>`
+  html += '<table><tr><th>Parça</th><th>zxcvbn bu parçayı ne sandı?</th><th>Ayrıntı</th></tr>'
+  for (const p of s.parcalar) html += `<tr><td>${kacis(p.parca)}</td><td>${kacis(p.tur)}</td><td>${kacis(p.ayrinti)}</td></tr>`
+  html += '</table>'
+  if (s.uyari) html += `<p class="kucuk">zxcvbn'in uyarısı: ${kacis(s.uyari)}</p>`
+  $('tekSonuc').innerHTML = html
+})
+
+$('dosya').addEventListener('change', async () => {
+  const dosya = $('dosya').files[0]
+  if (!dosya) return
+  try {
+    const kayitlar = Olcum.csvOku(await dosya.text())
+    const sonuclar = Olcum.gelistirmeyiOlc(kayitlar)
+    const blob = new Blob([Olcum.csvYaz(sonuclar)], { type: 'text/csv;charset=utf-8' })
+    const a = document.createElement('a')
+    a.href = URL.createObjectURL(blob)
+    a.download = 'zxcvbn_puanlari_gelistirme.csv'
+    a.click()
+    $('topluSonuc').innerHTML = `<p>Dosyadaki ${kayitlar.length} şifreden geliştirme setindeki <b>${sonuclar.length}</b> tanesi ölçüldü.
+      <b>zxcvbn_puanlari_gelistirme.csv</b> indirildi. Bu dosyayı proje klasöründeki <code>ciktilar</code> klasörüne taşıyın.</p>`
+  } catch (e) {
+    $('topluSonuc').innerHTML = `<p class="uyari">${kacis(e.message)}</p>`
+  }
+})
+
+const A = Olcum.AYARLAR
+$('ayarlar').innerHTML =
+  '<p>Paket sürümleri: ' + Object.entries(A.surumler).map(([k, v]) => `${kacis(k)} ${kacis(v)}`).join(' · ') + '</p>' +
+  '<p>Tanıdığı klavye düzenleri: ' + A.klavyeler.map(kacis).join(', ') + ' (F klavye yok)</p>' +
+  '<p>Kullandığı sözlükler: ' + A.sozlukler.map(kacis).join(', ') + '</p>'
+</script>
+</body>
+</html>

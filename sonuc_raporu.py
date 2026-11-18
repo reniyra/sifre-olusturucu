@@ -92,13 +92,13 @@ def grafik(kaliplar, renk):
         xx = x(10 ** us)
         p.append(f'<line x1="{xx:.1f}" y1="{ust - 8}" x2="{xx:.1f}" y2="{yukseklik - 45}" stroke="#ddd"/>')
         p.append(f'<text x="{xx:.1f}" y="{ust - 15}" font-size="12" text-anchor="middle" fill="#555">{nokta(10 ** us)}</text>')
-    p.append(f'<text x="{(sol + sag) / 2}" y="{yukseklik - 15}" font-size="13" text-anchor="middle" fill="#333">Deneme sayısı (logaritmik eksen)</text>')
+    p.append(f'<text x="{(sol + sag) / 2}" y="{yukseklik - 15}" font-size="13" text-anchor="middle" fill="#333">Deneme sayısı (her dikey çizgide 10 katına çıkar)</text>')
 
     for i, (kalip, k) in enumerate(kaliplar):
         y = ust + 20 + i * satir_h
         p.append(f'<text x="{sol - 12}" y="{y + 4}" font-size="13" text-anchor="end" fill="#222">{html.escape(KALIP_ADLARI.get(kalip, kalip))}</text>')
         if k["ortanca"] is None:
-            p.append(f'<text x="{sag}" y="{y + 4}" font-size="12" text-anchor="end" fill="#222">bulunamadı (sınırın üstünde) →</text>')
+            p.append(f'<text x="{sag}" y="{y + 4}" font-size="12" text-anchor="end" fill="#222">10 milyon denemede bulunamadı →</text>')
         else:
             p.append(f'<line x1="{x(k["sayilar"][0]):.1f}" y1="{y}" x2="{x(k["sayilar"][-1]):.1f}" y2="{y}" stroke="#999" stroke-width="2"/>')
             p.append(f'<circle cx="{x(k["ortanca"]):.1f}" cy="{y}" r="5" fill="{html.escape(renk)}"/>')
@@ -110,10 +110,16 @@ def tablo(kaliplar):
     satirlar = []
     for kalip, k in kaliplar:
         sayilar = k["sayilar"]
-        hucre = lambda d: nokta(d) if d is not None else "—"
+        hucre = lambda d: nokta(d) if d is not None else "bulunamadı"
+        if len(sayilar) == k["toplam"]:
+            bulunan = f"{k['toplam']} şifrenin hepsi"
+        elif not sayilar:
+            bulunan = f"{k['toplam']} şifrenin hiçbiri"
+        else:
+            bulunan = f"{k['toplam']} şifreden {len(sayilar)} tanesi"
         satirlar.append(
             f"<tr><td>{html.escape(KALIP_ADLARI.get(kalip, kalip))}</td>"
-            f"<td>{len(sayilar)} / {k['toplam']}</td>"
+            f"<td>{bulunan}</td>"
             f"<td>{hucre(sayilar[0] if sayilar else None)}</td>"
             f"<td>{hucre(k['ortanca'])}</td>"
             f"<td>{hucre(sayilar[-1] if sayilar else None)}</td></tr>"
@@ -144,12 +150,12 @@ def main():
 <p>{html.escape(m.get("ALT BAŞLIK", ""))}</p>
 {paragraf(m.get("GİRİŞ", ""))}
 
-<p class="baslik">Şekil 1. Kalıplara göre deneme sayıları (geliştirme seti, {toplam} şifre)</p>
+<p class="baslik">Şekil 1. Her şifre türü kaç denemede bulundu? (geliştirme seti, {toplam} şifre)</p>
 {grafik(kaliplar, renk)}
 {paragraf(m.get("ŞEKİL AÇIKLAMASI", ""))}
 
-<p class="baslik">Tablo 1. Kalıplara göre bulunan şifre sayısı ve deneme sayıları</p>
-<table><tr><th>Kalıp</th><th>Bulunan</th><th>En az</th><th>Ortanca</th><th>En çok</th></tr>
+<p class="baslik">Tablo 1. Her şifre türü kaç denemede bulundu?</p>
+<table><tr><th>Şifre türü</th><th>Kaç tanesi bulundu?</th><th>En çabuk bulunan<br>(deneme sayısı)</th><th>Ortadaki şifre<br>(ortanca)</th><th>En geç bulunan<br>(deneme sayısı)</th></tr>
 {tablo(kaliplar)}
 </table>
 {paragraf(m.get("TABLO AÇIKLAMASI", ""))}

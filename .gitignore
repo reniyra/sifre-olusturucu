@@ -1,0 +1,21 @@
+# GitHub'a yüklenmeyecek dosyalar
+
+# Excel / LibreOffice bir tabloyu açınca oluşan kilit dosyaları
+.~lock.*
+~$*
+
+# Python'un kendi oluşturduğu geçici dosyalar
+__pycache__/
+*.pyc
+
+# zxcvbn sayfasının kaynağını derlerken oluşan dosyalar
+node_modules/
+kaynak/zxcvbn_olcum/olcum.bundle.js
+
+# Windows ve Mac'in klasöre koyduğu gizli dosyalar
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Deneme klasörü (öğrencilerin kopyalarla çalıştığı yer)
+deneme/

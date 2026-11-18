@@ -23,6 +23,8 @@ TÜBİTAK 2204-B Ortaokul Öğrencileri Araştırma Projesi · Ana alan: Yazıl�
 | `ciktilar/deneme_sayilari_test.csv` | Test şifrelerinin deneme sayıları (sona kadar açılmaz) |
 | `sonuc_raporu.py` | Yardımcı program: sonuçları grafikli bir sayfaya çevirir |
 | `ciktilar/rapor.html` | Geliştirme setinin grafikli raporu (tarayıcıda açılır) |
+| `zxcvbn_olcum.html` | 3. program: zxcvbn'i Türkçe paketle çalıştırır. Tarayıcıda açılır; tek şifre dener ya da geliştirme setini toplu ölçüp `zxcvbn_puanlari_gelistirme.csv` indirir |
+| `kaynak/zxcvbn_olcum/` | `zxcvbn_olcum.html` sayfasının kaynak kodu |
 | `veri/rapor_metinleri.txt` | Rapor sayfasındaki yazılar, renk ve yazı tipi (öğrenciler yazar) |
 
 Sonraki programlar (güç ölçer, karşılaştırma) bu klasöre eklenecek.
@@ -39,7 +41,9 @@ python sonuc_raporu.py
 
 Son komut `ciktilar/rapor.html` sayfasını üretir; dosyayı çift tıklayarak tarayıcıda açabilirsiniz. Sayfadaki yazıları değiştirmek için `veri/rapor_metinleri.txt` dosyasını düzenleyin.
 
-Ayarlar dosyanın en üstündedir: her kalıptan kaç şifre üretileceği, tohum sayısı ve test oranı. Aynı tohumla her çalıştırmada aynı şifreler üretilir; bu, deneyin tekrarlanabilmesini sağlar.
+zxcvbn puanları için `zxcvbn_olcum.html` dosyasını Chrome ya da Edge ile açın ve `ciktilar/sifreler.csv` dosyasını seçin. İnen `zxcvbn_puanlari_gelistirme.csv` dosyasını `ciktilar/` klasörüne taşıyın. (`kaynak/zxcvbn_olcum/sayfa.html` bu sayfanın kalıbıdır, tek başına çalışmaz.)
+
+Şifre üreticinin ayarları `sifre_uretici.py` dosyasının en üstündedir: her kalıptan kaç şifre üretileceği, tohum sayısı ve test oranı. Aynı tohumla her çalıştırmada aynı şifreler üretilir; bu, deneyin tekrarlanabilmesini sağlar.
 
 ## Üretilen kalıplar
 
@@ -48,8 +52,8 @@ Ayarlar dosyanın en üstündedir: her kalıptan kaç şifre üretileceği, tohu
 | `kelime_yil_turkce` | ayşe2012 | Türkçe karakterli yazım |
 | `kelime_yil_ascii` | ayse2012 | Aynı şifrenin Türkçe karaktersiz hâli (eşli) |
 | `takim_kurulus` | fenerbahçe1907 | Takım + kuruluş yılı |
-| `sehir_plaka` | trabzon61 | Şehir + plaka kodu |
-| `f_klavye` | fgğıodr | F klavyede yan yana tuşlar |
+| `sehir_plaka` | denizli20 | Şehir + plaka kodu |
+| `f_klavye` | fgğıodrn | F klavyede yan yana tuşlar |
 | `q_klavye` | qwertyu | Q klavyede yan yana tuşlar (karşılaştırma için) |
 | `rastgele` | k3x9qa0zmt | Güçlü şifre örneği (karşılaştırma için) |
 | `cumle_sifre` | kalem-deniz-bulut | Uzun kelime şifresi |
@@ -90,7 +94,7 @@ Tahmin grupları: klavye dizileri, tek kelimeler, kelime + iki haneli sayı (00�
 
 **Karşılaştırılacak güç ölçer**
 
-- zxcvbn-ts: açık kaynaklı şifre güç ölçer ve dil paketleri (Türkçe paket dahil). https://zxcvbn-ts.github.io/zxcvbn/guide/languages/
+- zxcvbn-ts (sürümler: @zxcvbn-ts/core 4.3.0, @zxcvbn-ts/language-common 4.2.0, @zxcvbn-ts/language-tr 4.1.2): açık kaynaklı şifre güç ölçer ve dil paketleri (Türkçe paket dahil). https://zxcvbn-ts.github.io/zxcvbn/guide/languages/
 
 **Veri listeleri**
 
